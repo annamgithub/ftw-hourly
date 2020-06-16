@@ -13,7 +13,7 @@ const label = <h3>Yoga styles</h3>;
 const commonProps = {
   label: label,
   options: [
-    { key: 'ashtanga', label: 'Ashtanga' },
+    { key: 'jazz', label: 'Jazz' },
     { key: 'hatha', label: 'Hatha' },
     { key: 'kundalini', label: 'Kundalini' },
     { key: 'restorative', label: 'Restorative' },
