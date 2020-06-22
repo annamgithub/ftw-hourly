@@ -21,6 +21,7 @@ import { StripeConnectAccountForm } from '../../forms';
 import EditListingWizardTab, {
   AVAILABILITY,
   DESCRIPTION,
+  CAPACITY,
   FEATURES,
   POLICY,
   LOCATION,
@@ -41,6 +42,7 @@ const availabilityMaybe = config.enableAvailability ? [AVAILABILITY] : [];
 export const TABS = [
   DESCRIPTION,
   FEATURES,
+  CAPACITY,
   //POLICY,
   LOCATION,
   PRICING,
@@ -60,6 +62,8 @@ const tabLabel = (intl, tab) => {
     key = 'EditListingWizard.tabLabelDescription';
   } else if (tab === FEATURES) {
     key = 'EditListingWizard.tabLabelFeatures';
+  } else if (tab === CAPACITY) {
+    key = 'EditListingWizard.tabLabelCapacity';
   } else if (tab === POLICY) {
     key = 'EditListingWizard.tabLabelPolicy';
   } else if (tab === LOCATION) {
@@ -98,7 +102,9 @@ const tabCompleted = (tab, listing) => {
     case DESCRIPTION:
       return !!(description && title);
     case FEATURES:
-      return !!(publicData && publicData.yogaStyles);
+      return !!(publicData && publicData.musicStyles);
+    case CAPACITY:
+      return !!(publicData && publicData.capacity);
     case POLICY:
       return !!(publicData && typeof publicData.rules !== 'undefined');
     case LOCATION:
@@ -229,7 +235,7 @@ class EditListingWizard extends Component {
         hasRequirements(stripeAccountData, 'currently_due'));
 
     // if (stripeConnected && !requirementsMissing) {
-      onPublishListingDraft(id);
+    onPublishListingDraft(id);
     // } else {
     //   this.setState({
     //     draftId: id,
@@ -425,49 +431,49 @@ class EditListingWizard extends Component {
                 <RedirectToStripe redirectFn={handleGetStripeConnectAccountLink} />
               </p>
             ) : (
-              <>
-                <p className={css.modalMessage}>
-                  <FormattedMessage id="EditListingWizard.payoutModalInfo" />
-                </p>
-                <StripeConnectAccountForm
-                  disabled={formDisabled}
-                  inProgress={payoutDetailsSaveInProgress}
-                  ready={payoutDetailsSaved}
-                  currentUser={ensuredCurrentUser}
-                  stripeBankAccountLastDigits={getBankAccountLast4Digits(stripeAccountData)}
-                  savedCountry={savedCountry}
-                  submitButtonText={intl.formatMessage({
-                    id: 'StripePayoutPage.submitButtonText',
-                  })}
-                  stripeAccountError={stripeAccountError}
-                  stripeAccountFetched={stripeAccountFetched}
-                  stripeAccountLinkError={stripeAccountLinkError}
-                  onChange={onPayoutDetailsFormChange}
-                  onSubmit={rest.onPayoutDetailsSubmit}
-                  onGetStripeConnectAccountLink={handleGetStripeConnectAccountLink}
-                  stripeConnected={stripeConnected}
-                >
-                  {stripeConnected && !returnedAbnormallyFromStripe && showVerificationNeeded ? (
-                    <StripeConnectAccountStatusBox
-                      type="verificationNeeded"
-                      inProgress={getAccountLinkInProgress}
-                      onGetStripeConnectAccountLink={handleGetStripeConnectAccountLink(
-                        'custom_account_verification'
-                      )}
-                    />
-                  ) : stripeConnected && savedCountry && !returnedAbnormallyFromStripe ? (
-                    <StripeConnectAccountStatusBox
-                      type="verificationSuccess"
-                      inProgress={getAccountLinkInProgress}
-                      disabled={payoutDetailsSaveInProgress}
-                      onGetStripeConnectAccountLink={handleGetStripeConnectAccountLink(
-                        'custom_account_update'
-                      )}
-                    />
-                  ) : null}
-                </StripeConnectAccountForm>
-              </>
-            )}
+                  <>
+                    <p className={css.modalMessage}>
+                      <FormattedMessage id="EditListingWizard.payoutModalInfo" />
+                    </p>
+                    <StripeConnectAccountForm
+                      disabled={formDisabled}
+                      inProgress={payoutDetailsSaveInProgress}
+                      ready={payoutDetailsSaved}
+                      currentUser={ensuredCurrentUser}
+                      stripeBankAccountLastDigits={getBankAccountLast4Digits(stripeAccountData)}
+                      savedCountry={savedCountry}
+                      submitButtonText={intl.formatMessage({
+                        id: 'StripePayoutPage.submitButtonText',
+                      })}
+                      stripeAccountError={stripeAccountError}
+                      stripeAccountFetched={stripeAccountFetched}
+                      stripeAccountLinkError={stripeAccountLinkError}
+                      onChange={onPayoutDetailsFormChange}
+                      onSubmit={rest.onPayoutDetailsSubmit}
+                      onGetStripeConnectAccountLink={handleGetStripeConnectAccountLink}
+                      stripeConnected={stripeConnected}
+                    >
+                      {stripeConnected && !returnedAbnormallyFromStripe && showVerificationNeeded ? (
+                        <StripeConnectAccountStatusBox
+                          type="verificationNeeded"
+                          inProgress={getAccountLinkInProgress}
+                          onGetStripeConnectAccountLink={handleGetStripeConnectAccountLink(
+                            'custom_account_verification'
+                          )}
+                        />
+                      ) : stripeConnected && savedCountry && !returnedAbnormallyFromStripe ? (
+                        <StripeConnectAccountStatusBox
+                          type="verificationSuccess"
+                          inProgress={getAccountLinkInProgress}
+                          disabled={payoutDetailsSaveInProgress}
+                          onGetStripeConnectAccountLink={handleGetStripeConnectAccountLink(
+                            'custom_account_update'
+                          )}
+                        />
+                      ) : null}
+                    </StripeConnectAccountForm>
+                  </>
+                )}
           </div>
         </Modal>
       </div>
