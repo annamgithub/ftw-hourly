@@ -43,7 +43,7 @@ export const TABS = [
   DESCRIPTION,
   FEATURES,
   CAPACITY,
-  //POLICY,
+  POLICY,
   LOCATION,
   PRICING,
   ...availabilityMaybe,
@@ -63,7 +63,7 @@ const tabLabel = (intl, tab) => {
   } else if (tab === FEATURES) {
     key = 'EditListingWizard.tabLabelFeatures';
   } else if (tab === CAPACITY) {
-    key = 'EditListingWizard.tabLabelCapacity';
+    key = 'Capacity';
   } else if (tab === POLICY) {
     key = 'EditListingWizard.tabLabelPolicy';
   } else if (tab === LOCATION) {
@@ -102,13 +102,18 @@ const tabCompleted = (tab, listing) => {
     case DESCRIPTION:
       return !!(description && title);
     case FEATURES:
-      return !!(publicData && publicData.musicStyles);
+      return !!(publicData && publicData.amenities);
     case CAPACITY:
       return !!(publicData && publicData.capacity);
     case POLICY:
       return !!(publicData && typeof publicData.rules !== 'undefined');
     case LOCATION:
-      return !!(geolocation && publicData && publicData.location && publicData.location.address);
+      return !!(
+        geolocation &&
+        publicData &&
+        publicData.location &&
+        publicData.location.address
+      );
     case PRICING:
       return !!price;
     case AVAILABILITY:

@@ -12,6 +12,7 @@ import { ensureListing } from '../../util/data';
 import { createResourceLocatorString } from '../../util/routes';
 import {
   EditListingAvailabilityPanel,
+  EditListingCapacityPanel,
   EditListingDescriptionPanel,
   EditListingFeaturesPanel,
   EditListingLocationPanel,
@@ -19,7 +20,7 @@ import {
   EditListingPoliciesPanel,
   EditListingPricingPanel,
 } from '../../components';
-import  EditListingCapacityPanel from '../../components/EditListingCapacityForm/EditListingCapacityPanel'
+
 
 import css from './EditListingWizard.css';
 

@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import { ensureOwnListing } from '../../util/data';
 import { findOptionsForSelectFilter } from '../../util/search';
 import { ListingLink } from '../../components';
-import { EditListingCapacityForm } from '../../forms/EditListingCapacityForm/EditListingCapacityForm';
+import EditListingCapacityForm from '../../forms/EditListingCapacityForm/EditListingCapacityForm'
 import config from '../../config.js';
 
 // Create this file using EditListingDescriptionPanel.css

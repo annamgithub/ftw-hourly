@@ -109,4 +109,3 @@ EditListingCapacityFormComponent.propTypes = {
 };
 
 export default compose(injectIntl)(EditListingCapacityFormComponent);
-
