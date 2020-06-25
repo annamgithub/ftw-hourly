@@ -82,11 +82,11 @@ class ModalMissingInformation extends Component {
       const stripeAccountNeeded = currentUserHasListings && stripeAccountMissing;
 
       // Show reminder
-      if (emailVerificationNeeded) {
-        this.setState({ showMissingInformationReminder: EMAIL_VERIFICATION });
-      } else if (stripeAccountNeeded) {
-        this.setState({ showMissingInformationReminder: STRIPE_ACCOUNT });
-      }
+      // if (emailVerificationNeeded) {
+      //   this.setState({ showMissingInformationReminder: EMAIL_VERIFICATION });
+      // } else if (stripeAccountNeeded) {
+      //   this.setState({ showMissingInformationReminder: STRIPE_ACCOUNT });
+      // }
     }
   }
 

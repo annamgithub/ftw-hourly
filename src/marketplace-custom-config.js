@@ -92,11 +92,11 @@ export const filters = [
     config: {},
   },
   {
-    id: 'yogaStyles',
-    label: 'Yoga styles',
+    id: 'musicStyles',
+    label: 'Music styles',
     type: 'SelectMultipleFilter',
     group: 'secondary',
-    queryParamNames: ['pub_yogaStyles'],
+    queryParamNames: ['pub_musicStyles'],
     config: {
       // Optional modes: 'has_all', 'has_any'
       // https://www.sharetribe.com/api-reference/marketplace.html#extended-data-filtering
@@ -107,12 +107,27 @@ export const filters = [
       // Note: label is not added through the translation files
       // to make filter customizations a bit easier.
       options: [
-        { key: 'ashtanga', label: 'Ashtanga' },
-        { key: 'hatha', label: 'Hatha' },
-        { key: 'kundalini', label: 'Kundalini' },
-        { key: 'restorative', label: 'Restorative' },
-        { key: 'vinyasa', label: 'Vinyasa' },
-        { key: 'yin', label: 'Yin' },
+        { key: 'jazz', label: 'Jazz' },
+        { key: 'rock', label: 'Rock' },
+        { key: 'classical', label: 'Classical' },
+        { key: 'electronic', label: 'Electronic' },
+        { key: 'r&b', label: 'R&B' },
+        { key: 'hip hop', label: 'Hip Hop' },
+      ],
+    },
+  },
+  {
+    id: 'capacity',
+    label: 'Capacity',
+    type: 'SelectSingleFilter',
+    group: 'secondary',
+    queryParamNames: ['pub_capacity'],
+    config: {
+      options: [
+        { key: '1to3', label: '1 to 3' },
+        { key: '4to6', label: '4 to 6' },
+        { key: '7to9', label: '7 to 9' },
+        { key: '10plus', label: '10 plus' },
       ],
     },
   },

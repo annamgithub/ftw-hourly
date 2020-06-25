@@ -8,12 +8,12 @@ import { requiredFieldArrayCheckbox } from '../../util/validators';
 const formName = 'Styleguide.FieldCheckboxGroup';
 const formNameRequired = 'Styleguide.FieldCheckboxGroupRequired';
 
-const label = <h3>Yoga styles</h3>;
+const label = <h3>music styles</h3>;
 
 const commonProps = {
   label: label,
   options: [
-    { key: 'ashtanga', label: 'Ashtanga' },
+    { key: 'jazz', label: 'Jazz' },
     { key: 'hatha', label: 'Hatha' },
     { key: 'kundalini', label: 'Kundalini' },
     { key: 'restorative', label: 'Restorative' },
@@ -24,14 +24,14 @@ const commonProps = {
 };
 
 const optionalProps = {
-  name: 'yogaStyles-optional',
-  id: 'yogaStyles-optional',
+  name: 'musicStyles-optional',
+  id: 'musicStyles-optional',
   ...commonProps,
 };
 
 const requiredProps = {
-  name: 'yogaStyles-required',
-  id: `${formNameRequired}.yogaStyles-required`,
+  name: 'musicStyles-required',
+  id: `${formNameRequired}.musicStyles-required`,
   ...commonProps,
   validate: requiredFieldArrayCheckbox('this is required'),
 };

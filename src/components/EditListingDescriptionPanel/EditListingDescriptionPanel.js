@@ -52,7 +52,7 @@ const EditListingDescriptionPanel = props => {
       <h1 className={css.title}>{panelTitle}</h1>
       <EditListingDescriptionForm
         className={css.form}
-        initialValues={{ title, description, certificate: publicData.certificate }}
+        // initialValues={{ title, description, certificate: publicData.certificate }}
         saveActionMsg={submitButtonText}
         onSubmit={values => {
           const { title, description, certificate } = values;
@@ -70,7 +70,7 @@ const EditListingDescriptionPanel = props => {
         updated={panelUpdated}
         updateInProgress={updateInProgress}
         fetchErrors={errors}
-        certificateOptions={certificateOptions}
+        // certificateOptions={certificateOptions}
       />
     </div>
   );
